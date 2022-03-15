@@ -51,14 +51,20 @@ public class Controlador extends HttpServlet {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
-        out.println(ing.getIng());
+
+
+        out.println("El destino es: " + ing.getOut());
         
         
-        InputStreamReader in = new InputStreamReader(ing.getOut());
-		Stream<String> sos = new BufferedReader(in).lines();
-		String soso = sos.collect(Collectors.joining());
-		
-		out.println(soso);
+//        InputStreamReader in = new InputStreamReader(ing.getOut());
+//		Stream<String> sos = new BufferedReader(in).lines();
+//		String soso = sos.collect(Collectors.joining());
+//		
+//		out.println(soso);
+        
+        
+        
+        
 //		
         
 //        out.println("<h1>Hora Actual: ");
