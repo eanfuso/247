@@ -1,8 +1,12 @@
 package com.tvp.pomi_02;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.Writer;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -35,13 +39,34 @@ public class Controlador extends HttpServlet {
 		response.setContentType("application/json");
         PrintWriter out = response.getWriter();
         out.println("Tu pedido fue: " + (request.getParameter("link")));
+        String link = request.getParameter("link");
+        Ingesta ing = new Ingesta(link);
+        //ing .run();
+        Thread p1 = new Thread(ing);
+        p1.start();
         
+//        try {
+//			ing.wait();
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+        out.println(ing.getIng());
+        
+        
+        InputStreamReader in = new InputStreamReader(ing.getOut());
+		Stream<String> sos = new BufferedReader(in).lines();
+		String soso = sos.collect(Collectors.joining());
+		
+		out.println(soso);
+//		
         
 //        out.println("<h1>Hora Actual: ");
 //        out.println(System.currentTimeMillis());
 //        out.println("</h1>");
         response.setStatus(200);
 	}
+		
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
