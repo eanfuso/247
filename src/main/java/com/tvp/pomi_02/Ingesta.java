@@ -42,12 +42,13 @@ public class Ingesta  {
 	
 	public void correr() {
 		try {
-			String [] cmd = {"ffmpeg","-i", "http://rt-esp.rttv.com/live/rtesp/playlist.m3u8", "-f", "flv", ing};
+			String [] cmd = {"ffmpeg", "-hide_banner", "-loglevel", "warning", "-i", "http://rt-esp.rttv.com/live/rtesp/playlist.m3u8", "-f", "flv", ing};
 			
 			ProcessBuilder pb = new ProcessBuilder().command(cmd).redirectErrorStream(true);
 			Process p = pb.start();
 
 			InputStream stdOut = p.getInputStream();
+			
 			out = stdOut;
 			
 			
