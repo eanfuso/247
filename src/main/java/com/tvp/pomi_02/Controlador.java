@@ -9,12 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+//import com.tvpublica.controllers.Process;
+//import com.tvpublica.controllers.String;
+
 /**
  * Servlet implementation class Controlador
  */
 public class Controlador extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
+	//private static final long serialVersionUID = 1L;
+	private String ing;
+    public void setIng(String ing) {
+		this.ing = ing;
+	}
+
+	///  private String link;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -32,11 +40,15 @@ public class Controlador extends HttpServlet {
 	
 		//response.getWriter().append(request.getAttribute("link"));
 		//PrintWriter print = new PrintWriter((Writer) request.getAttribute("link"));
-		response.setContentType("application/json");
+		response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        out.println("Tu pedido fue: " + (request.getParameter("link")));
+       String link = request.getParameter("link");
+        out.println("Tu pedido fue: " + link);
+        //out.println(cmd + link);
         
-        
+        String[] cmd = {"ffmpeg", "-stream_loop", " 1","-i","http://rt-esp.rttv.com/live/rtesp/playlist.m3u8", "-f", "flv", link, "2>", "C:\\Users\\esteban\\log.log", "&"};
+        Ingesta ing = new Ingesta(cmd);
+        ing.run();
 //        out.println("<h1>Hora Actual: ");
 //        out.println(System.currentTimeMillis());
 //        out.println("</h1>");
@@ -50,5 +62,11 @@ public class Controlador extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+	 
+
+	
+	
 
 }
+
+//Strin de prueba: String[] cmd = {"ffmpeg", "-stream_loop", " 1","-i","http://rt-esp.rttv.com/live/rtesp/playlist.m3u8", "-f", "flv", ing };
