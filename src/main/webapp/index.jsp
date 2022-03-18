@@ -6,6 +6,8 @@
 <label>Ingrese server y llave</label>
 <input type="text" name="link">
 <button type= "submit">emitir</button>
+
+<input type="button" value="detener" name="detener" action="Controlador" method="get">
 </form>
 
 
