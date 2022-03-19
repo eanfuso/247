@@ -6,12 +6,20 @@
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
   	<servlet-name>Controlador</servlet-name>
-  	<display-name>Controlador</display-name>
-  
+  	<display-name>Controlador</display-name>  
   	<servlet-class>com.tvp.pomi_02.Controlador</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Matar</servlet-name>
+  	<display-name>Matar</display-name>
+  	<servlet-class>com.tvp.pomi_02.Matar</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>Controlador</servlet-name>
   	<url-pattern>/Controlador</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Matar</servlet-name>
+  	<url-pattern>/Matar</url-pattern>
   </servlet-mapping>
 </web-app>

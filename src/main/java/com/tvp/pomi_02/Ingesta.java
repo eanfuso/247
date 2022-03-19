@@ -46,11 +46,12 @@ public class Ingesta  {
 			
 			ProcessBuilder pb = new ProcessBuilder().command(cmd).redirectErrorStream(true);
 			Process p = pb.start();
-
-			InputStream stdOut = p.getInputStream();
+//ME CUELGA
 			
-			out = stdOut;
-			
+//			InputStream stdOut = p.getInputStream();
+//			
+//			out = stdOut;
+//			
 			
 			
 			
