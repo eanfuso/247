@@ -28,7 +28,14 @@
             <form action="Controlador" method="get">
                 <label>Ingrese server y llave</label>
                 <input type="text" name="link">
-                <button type= "submit">emitir</button>
+<!--                 <button type= "submit">emitir</button> -->
+				
+				 <select name="cont">
+				  <option value="pres">pres</option>
+				  <option value="placa">placa</option>
+				 </select>
+				 <input type="submit" value="emitir">
+<!--                 <input type="submit" value="placa" name="placa">	 -->
 <!--                 </form> -->
 <!--                 <form action="Matar" method="get"> -->
 <!--                 <input type="hidden" value="1" name="detener"  > -->
@@ -48,9 +55,10 @@
             <form action="Controlador" method="get">
                 <label>Ingrese server y llave</label>
                 <input type="text" name="link">
+               
                 <button type= "submit">emitir</button>
                 
-                <input type="button" value="detener" name="detener" action="Controlador" method="get">
+<!--                 <input type="button" value="detener" name="detener" action="Controlador" method="get"> -->
                 </form><br> <br>
                 <iframe width="280" height="158" src="https://www.youtube.com/embed/7_oQ0OJ2F0M?autoplay=1&mute=1&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             

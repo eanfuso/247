@@ -46,9 +46,23 @@ public class Controlador extends HttpServlet {
         out.println("Tu pedido fue: " + (request.getParameter("link")));
         String link = request.getParameter("link");
         Ingesta ing = new Ingesta(link);
-        ing .correr();
-
        
+        if ("pres".equals(request.getParameter("cont"))) {
+       
+//        	String[] mat = {"taskkill", "/f", "/IM", "ffmpeg.exe"};
+//        	Process process = Runtime.getRuntime().exec(mat);
+        	
+        	ing.correr();
+        }
+        if ("placa".equals(request.getParameter("cont")))
+        {
+//        	String[] mat = {"taskkill", "/f", "/IM", "ffmpeg.exe"};
+//        	Process process = Runtime.getRuntime().exec(mat);
+         ing.correrPlaca();
+         }
+        out.println(request.getParameter("cont"));
+
+
         
         
         //FIN Detención forzada
@@ -63,7 +77,7 @@ public class Controlador extends HttpServlet {
         //        Thread p1 = new Thread(ing);
 //        p1.start();
 //        
-//        if ((request.getParameter("detener")) != null) {
+//        if ((request.getParameter("placa")) = "placa") {
 //        	Process process = Runtime.getRuntime().exec("taskkill /f /IM ffmpeg.exe");
 //        }
 //        
@@ -97,11 +111,11 @@ public class Controlador extends HttpServlet {
 //        out.println(System.currentTimeMillis());
 //        out.println("</h1>");
         
-        response.sendRedirect("index.jsp");
+       // response.sendRedirect("index.jsp");
         response.setStatus(200);
-	}
-		
 
+	}
+  
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

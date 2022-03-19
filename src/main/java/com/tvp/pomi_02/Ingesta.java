@@ -8,6 +8,8 @@ import java.io.InputStreamReader;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import javax.crypto.interfaces.PBEKey;
+
 //import com.tvpublica.controllers.Process;
 
 public class Ingesta  {
@@ -42,16 +44,25 @@ public class Ingesta  {
 	
 	public void correr() {
 		try {
+		
 			String [] cmd = {"ffmpeg", "-hide_banner", "-loglevel", "warning", "-i", "http://rt-esp.rttv.com/live/rtesp/playlist.m3u8", "-f", "flv", ing};
 			
 			ProcessBuilder pb = new ProcessBuilder().command(cmd).redirectErrorStream(true);
 			Process p = pb.start();
+			
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		}
 //ME CUELGA
 			
 //			InputStream stdOut = p.getInputStream();
 //			
 //			out = stdOut;
 //			
+			
 			
 			
 			
@@ -83,10 +94,22 @@ public class Ingesta  {
 			
 			
 			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	
+		
+		public void correrPlaca() {
+			try {
+				
+	        	
+				String [] cmdPlaca = {"ffmpeg", "-hide_banner", "-loglevel", "warning", "-stream_loop", "-1", "-i", "C:\\glaciar.mov", "-f", "flv", ing};
+				
+				ProcessBuilder pb = new ProcessBuilder().command(cmdPlaca).redirectErrorStream(true);
+				Process p = pb.start();
+				
+				
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
 	}
 
