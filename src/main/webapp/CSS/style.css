@@ -8,7 +8,9 @@
     
 }
 h2{
-	text-align: left;
+	font-family: 'Nunito', serif;
+	text-align: center;
+	color: blue;
 	
 
 	
@@ -28,6 +30,9 @@ background-color: #ec0b0b;
 
 
 nav{
+	display: flex;
+ align-items: center;
+  
     height: 70px;
     text-align: center; /*me centra la barra de inicio*/
     background-color: #ccc;

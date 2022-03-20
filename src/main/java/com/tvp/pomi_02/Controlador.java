@@ -45,20 +45,49 @@ public class Controlador extends HttpServlet {
         PrintWriter out = response.getWriter();
         out.println("Tu pedido fue: " + (request.getParameter("link")));
         String link = request.getParameter("link");
-        Ingesta ing = new Ingesta(link);
+       // Ingesta ing = new Ingesta(link);
        
         if ("pres".equals(request.getParameter("cont"))) {
+        	
+        	
+        	Terminar t = new Terminar();
+        	t.TerminarProceso();
+        	//System.gc(); //basura
+        	out.println(toString().toString());
+       	
+       	try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
        
 //        	String[] mat = {"taskkill", "/f", "/IM", "ffmpeg.exe"};
 //        	Process process = Runtime.getRuntime().exec(mat);
         	
-        	ing.correr();
+        	Ingesta ingv = new Ingesta(link);
+        	ingv.correr();
+        	
         }
         if ("placa".equals(request.getParameter("cont")))
         {
 //        	String[] mat = {"taskkill", "/f", "/IM", "ffmpeg.exe"};
 //        	Process process = Runtime.getRuntime().exec(mat);
-         ing.correrPlaca();
+        	
+//        	
+        	Terminar t = new Terminar();
+        	t.TerminarProceso();
+        	//System.gc(); //basura
+        	out.println(toString().toString());
+       	
+       	try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+       	Ingesta ingp = new Ingesta(link);
+         ingp.correrPlaca();
          }
         out.println(request.getParameter("cont"));
 
@@ -111,7 +140,7 @@ public class Controlador extends HttpServlet {
 //        out.println(System.currentTimeMillis());
 //        out.println("</h1>");
         
-       // response.sendRedirect("index.jsp");
+        response.sendRedirect("index.jsp");
         response.setStatus(200);
 
 	}
